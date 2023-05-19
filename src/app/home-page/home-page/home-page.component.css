@@ -1,0 +1,37 @@
+*{
+  font-family: sans-serif, Roboto;
+  font-size: 14px;
+  font-weight: 500;
+  /* text-decoration: none; */
+  font-weight: bold;
+}
+body{
+  overflow-x:hidden;
+}
+
+.dropdown:hover>.dropdown-menu {
+  display: block;
+}
+
+.dropdown>.dropdown-toggle:active {
+  /*Without this, clicking will make it sticky*/
+  pointer-events: none;
+}
+
+
+.navbar-light .navbar-nav .nav-link:hover {
+  color: #f26b38;
+}
+
+.user-profile{
+  margin-right: 150px;
+}
+
+footer{
+  font-size: 13px;
+}
+
+.footer-index:hover{
+  text-decoration: underline;
+  color: #f26b38;
+}

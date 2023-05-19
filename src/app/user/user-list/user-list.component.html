@@ -1,0 +1,150 @@
+<div class="wrapper col-md-12" style="height: 100%">
+  <div class="row">
+    <div class="sidebar col-md-2" data-color="purple" style="position: relative; height: 100vh; background-color: #FF6699">
+      <div class="row">
+        <div class="sidebar-wrapper col-md-12">
+          <div class="logo">
+            <a href="http://www.creative-tim.com" class="simple-text">
+              MOM&&KID
+            </a>
+          </div>
+
+          <ul class="nav">
+            <li>
+              <a routerLink="/listSchedule" class="nav-link link-dark">
+                <img src="../../../assets/image/lichtrinh.png" height="20" width="20"/>
+                <p>&nbsp; &nbsp; Quản lý lịch trình</p>
+              </a>
+            </li>
+            <li>
+              <a routerLink="/listDoctor" class="nav-link link-dark">
+
+                <img src="../../../assets/image/doctor.jpg" height="20" width="20"/>
+                <p>&nbsp; &nbsp; Quản lý bác sĩ</p>
+              </a>
+            </li>
+            <li>
+              <a routerLink="/listUser"  class="nav-link link-dark" aria-current="page">
+                <img src="../../../assets/image/user.jpg" height="20" width="20"/>
+                <p>&nbsp; &nbsp; Quản lý người dùng</p>
+              </a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="main-content col-md-10 bg-light">
+      <div class="row">
+        <div class="col-md-12" style="height: 60px; background-color: rgba(255, 255, 255, 0.96);">
+          <div class="row">
+            <div class="col-md-11">
+
+            </div>
+            <div class="col-md-1">
+              <a href="" style="line-height: 50px;">Logout</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 container-content">
+          <div class="row">
+            <a routerLink="/listUser" href="" style="font-weight: bold; margin-top: 15px; margin-left: 30px; text-decoration: none; float: left;">Mẹ</a>
+          </div>
+          <div class="row">
+            <div class="col-md-12" style="margin-top: 15px">
+
+              <div class="row">
+                <div class="col-md-12">
+
+                  <div class="container-fluid">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="card">
+                          <div class="header">
+                            <div class="row">
+                              <div class="col-md-12">
+                                <div class="row">
+                                  <div class="col-md-7"><h4 class="title" style="text-transform: uppercase ; font-weight: bold">Danh sách người dùng</h4></div>
+                                  <div class="col-md-5">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="content table-responsive table-full-width">
+                            <table class="table table-hover table-striped">
+                              <thead>
+                              <th>Tên người dùng</th>
+                              <th>Email</th>
+                              <th>Số điện thoại</th>
+                              <th>Chi tiết</th>
+                              <th style="width: 100%">Xóa</th>
+                              </thead>
+                              <tbody>
+                              <tr *ngFor="let user of users, index as i">
+                                <td>{{user.firstName}} {{user.lastName}}</td>
+                                <td>{{user.email}}</td>
+                                <td>{{user.phoneNumber}}</td>
+                                <td>
+                                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal"  [routerLink]="['/detailUser',user.id]">
+                                    <i class='bx bx-edit'></i>
+                                  </button>
+                                </td>
+                                <td style="width: 100%">
+                                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModalDelete" (click)="showId(user.id,user.firstName,user.lastName)">
+                                    <i class='bx bxs-trash-alt'></i>
+                                  </button>
+                                </td>
+                              </tr>
+
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- The Modal -->
+<div class="modal fade" id="myModalDelete">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Xác nhận</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        Bạn có thực sự muốn xóa
+        <span>{{firstName}} {{lastName}}</span>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" [routerLink]="['/userDelete',id]">Delete</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+

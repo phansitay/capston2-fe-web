@@ -1,0 +1,147 @@
+<div class="wrapper col-md-12" style="height: 100%">
+  <div class="row">
+    <div class="sidebar col-md-2" data-color="purple" style="position: relative; height: 100vh;">
+      <div class="row">
+        <div class="sidebar-wrapper col-md-12">
+          <div class="logo">
+            <a href="http://www.creative-tim.com" class="simple-text">
+              MOM&&KID
+            </a>
+          </div>
+
+          <ul class="nav">
+            <li>
+              <a routerLink="/listSchedule" class="nav-link link-dark">
+                <img src="../../../assets/image/lichtrinh.png" height="20" width="20"/>
+                <p>&nbsp; &nbsp; Quản lý lịch trình</p>
+              </a>
+            </li>
+            <li>
+              <a routerLink="/listDoctor" class="nav-link link-dark">
+
+                <img src="../../../assets/image/doctor.jpg" height="20" width="20"/>
+                <p>&nbsp; &nbsp; Quản lý bác sĩ</p>
+              </a>
+            </li>
+            <li>
+              <a routerLink="/listUser"  class="nav-link link-dark" aria-current="page">
+                <img src="../../../assets/image/user.jpg" height="20" width="20"/>
+                <p>&nbsp; &nbsp; Quản lý người dùng</p>
+              </a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="main-content col-md-10 bg-light" >
+      <div class="row">
+        <div class="col-md-12" style="height: 60px; background-color: rgba(255, 255, 255, 0.96);">
+          <div class="row">
+            <div class="col-md-11">
+
+            </div>
+            <div class="col-md-1">
+              <a href="" style="line-height: 50px;">Logout</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 container-content">
+
+          <div class="row">
+            <a routerLink="/listSchedule" href="" style="font-weight: bold; margin-top: 15px; margin-left: 30px; text-decoration: none; float: left; position: absolute">Lịch trình</a>
+            <a [routerLink]="['/detailSchedule',data]" href="" style="font-weight: bold; margin-top: 15px; margin-left: 30px; text-decoration: none;margin-left: 90px; position: absolute">&nbsp;/ Chi tiết</a>
+            <a  href="" style="font-weight: bold; margin-top: 15px; margin-left: 30px; text-decoration: none;margin-left: 151px">&nbsp;/ Chỉnh sửa</a>
+          </div>
+          <!--       Main        -->
+          <div class="col-lg-12" style="margin-top: 15px">
+            <div class="col">
+              <div class="card" style="margin-left: -15px; margin-right: -15px">
+                <!--          add-->
+                <div class="container-add">
+
+                  <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <form [formGroup]="scheduleFormEdit" (ngSubmit)="submit()">
+
+                            <div class="row">
+                              <div class="col-md-12">
+                                <div class="row">
+                                  <div class="col-md-3 txt">
+                                    <span class="tit">*</span><span for="validationDefaultUsername">Thời gian bắt đầu </span>
+                                  </div>
+                                  <div class="col-md-9 inp">
+                                    <input formControlName="beginTime" id="validationDefaultUsername"  aria-describedby="inputGroupPrepend2" required class="form-control" type="text">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-12">
+                                <div class="row">
+                                  <div class="col-md-3 txt">
+                                    <span class="tit">*</span><span>Thời gian kết thúc </span>
+                                  </div>
+                                  <div class="col-md-9 inp">
+                                    <input formControlName="endTime" class="form-control" type="text" >
+                                    <!--                              <span class="validate" *ngIf="employeeFormCreate.controls.password.touched && employeeFormCreate.controls.password.errors?.required">Mật khẩu không được để trống !</span>-->
+                                    <!--                              <span class="validate" *ngIf="employeeFormCreate.controls.password.touched && employeeFormCreate.controls.password.errors?.pattern">Mật khẩu phải có ít nhất 8 ký tự ,ít nhật 1 ký tự hoa, ký tự thường ,một số và ký tự đặc biệt!</span>-->
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-12">
+                                <div class="row">
+                                  <div class="col-md-3 txt">
+                                    <span class="tit">*</span><span>Nội dung </span>
+                                  </div>
+                                  <div class="col-md-9 inp">
+                                    <input formControlName="content" class="form-control" type="text" placeholder="Entern confirm Password">
+                                    <!--                              <span class="validate" *ngIf="employeeFormCreate.controls.confirmPassword.touched && employeeFormCreate.controls.confirmPassword.errors?.required">Nhập lại mật khẩu không được để trống !</span>-->
+                                    <!--                              <span class="validate" *ngIf="employeeFormCreate.hasError('not') && employeeFormCreate.controls.confirmPassword.touched">Mật khẩu không trùng khớp</span>-->
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-12">
+                                <div class="row">
+                                  <div class="col-md-6">
+                                    <button  style="width: 100px;float: right" type="submit" class="btn addedit" data-bs-dismiss="modal">Sửa</button>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <!--                              [disabled]="employeeFormCreate.invalid"-->
+                                    <button [routerLink]="['/detailSchedule',data]" style="width: 100px; margin-left: 10px" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModalThoat" >Quay lại</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                          </form>
+                        </div>
+                      </div>
+
+                    </div>
+                    <div class="col-md-1">
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+

@@ -1,0 +1,120 @@
+<div class="wrapper col-md-12" style="height: 100%">
+  <div class="row">
+    <div class="sidebar col-md-2" data-color="purple" style="position: relative; height: 100vh;">
+      <div class="row">
+        <div class="sidebar-wrapper col-md-12">
+          <div class="logo">
+            <a href="http://www.creative-tim.com" class="simple-text">
+              MOM&&KID
+            </a>
+          </div>
+
+          <ul class="nav">
+            <li class="active">
+              <a href="dashboard.html">
+                <i class="pe-7s-graph"></i>
+                <p>Dashboard</p>
+              </a>
+            </li>
+            <li>
+              <a routerLink="/listSchedule" class="nav-link link-dark">
+                <img src="../../../assets/image/lichtrinh.png" height="20" width="20"/>
+                <p>&nbsp; &nbsp; Quản lý lịch trình</p>
+              </a>
+            </li>
+            <li>
+              <a routerLink="/listDoctor" class="nav-link link-dark">
+
+                <img src="../../../assets/image/doctor.jpg" height="20" width="20"/>
+                <p>&nbsp; &nbsp; Quản lý bác sĩ</p>
+              </a>
+            </li>
+            <li>
+              <a routerLink="/listUser"  class="nav-link link-dark" aria-current="page">
+                <img src="../../../assets/image/user.jpg" height="20" width="20"/>
+                <p>&nbsp; &nbsp; Quản lý người dùng</p>
+              </a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="main-content col-md-10 bg-light" >
+      <div class="row">
+        <div class="col-md-12" style="height: 60px; background-color: rgba(255, 255, 255, 0.96);">
+          <div class="row">
+            <div class="col-md-11">
+
+            </div>
+            <div class="col-md-1">
+              <a href="" style="line-height: 50px;">Logout</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 container-content">
+          <div class="row">
+            <a routerLink="/listSchedule" href="" style="font-weight: bold; margin-top: 15px; margin-left: 30px; text-decoration: none; float: left; ">Lịch trình</a>
+          </div>
+          <div class="row">
+            <div class="col-md-12" style="margin-top: 15px">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="container-fluid">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="card">
+                          <div class="header">
+                            <div class="row">
+                              <div class="col-md-12">
+                                <div class="row">
+                                  <div class="col-md-7"><h4 class="title">Danh sách người dùng</h4></div>
+                                  <div class="col-md-5">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="content table-responsive table-full-width">
+                            <table class="table table-hover table-striped">
+                              <thead>
+                              <th>Tên chu kỳ</th>
+                              <th>Mô tả</th>
+                              <th style="width: 100%">Chi tiết</th>
+                              </thead>
+                              <tbody>
+                              <tr *ngFor="let schedule of schedules, index as i">
+                                <td>{{schedule.name}} </td>
+                                <td>{{schedule.content}}</td>
+                                <td style="width: 100%">
+                                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal"  [routerLink]="['/detailSchedule',schedule.id]">
+                                    <i class='bx bx-edit'></i>
+                                  </button>
+                              </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+

@@ -1,0 +1,121 @@
+.nav-pills .nav-link.active, .bg-sub{
+  color: #fff;
+  background-color: #F26b38;
+}
+
+.bg-close{
+  color: #fff;
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+.page-link , .bg-icon{
+  color: #F26b38;
+}
+
+.body{
+  font-size: 14px;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.mg-lx-2{
+  margin-left: 0.5rem;
+}
+
+/*create*/
+/*.container{*/
+/*  width: 200%;*/
+/*  margin-left: -50%;*/
+/*}*/
+/*.form-control{*/
+/*  width: 100%;*/
+/*}*/
+/*span{*/
+/*  float: right;*/
+/*}*/
+.tit{
+  color: red;
+  /* float: right; */
+}
+.container-add{
+  margin-top: 20px;
+}
+/*.inp{*/
+/*  height: 60px;*/
+/*  line-height: 50px;*/
+/*}*/
+/*.form-control{*/
+/*  margin-top: 6.2px;*/
+/*}*/
+.txt{
+  line-height: 50px;
+}
+/*.form-check-input{*/
+/*  margin-top: 17px;*/
+/*}*/
+/*.sex{*/
+/*  margin-top: 17px;*/
+/*}*/
+.validate{
+  color: red;
+  font-size: 13px;
+  margin-top: -15px;
+}
+
+/*.addedit{*/
+/*  background-color: #f26b38;*/
+/*  color: white;*/
+/*}*/
+
+/*.addedit:hover{*/
+/*  background-color: #f1632f;*/
+/*}*/
+
+.nav-pills .nav-link.active, .bg-sub{
+  color: #fff;
+  background-color: #F26b38;
+}
+
+.bg-close{
+  color: #fff;
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+.page-link , .bg-icon{
+  color: #F26b38;
+}
+
+.font-size{
+  font-size: 14px;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.mg-lx-2{
+  margin-left: 0.5rem;
+}
+
+.image-delete{
+  width: 100%;
+}
+
+.link-dark:hover{
+  background-color: #61fafa;
+}
+
+
+.btn-add-doctor{
+  background-color: #F26b38;
+  height: 40px;
+  color: white;
+  border: none;
+  width: 100px;
+  border-radius: 5px;
+  margin-left: 180px;
+}
