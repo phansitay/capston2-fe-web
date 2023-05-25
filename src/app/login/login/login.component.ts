@@ -24,6 +24,8 @@ export class LoginComponent implements OnInit {
       const token = response.accessToken;
       const firstName = response.data.firstName;
       const lastName = response.data.lastName;
+      const phone = response.data.phone;
+      const address = response.data.address;
       const role = response.data.role;
       // lưu token vào localStorage
       localStorage.setItem('token', token);
@@ -32,11 +34,15 @@ export class LoginComponent implements OnInit {
       console.log("role",role)
       console.log("login thành công")
       localStorage.setItem("role",role);
-      localStorage.setItem("name",firstName);
+      localStorage.setItem("lastName",lastName);
+      localStorage.setItem("firstName",lastName);
+      localStorage.setItem("email",email);
+      localStorage.setItem("address",address);
+      localStorage.setItem("phone",phone)
       this.authService.setIsAuthenticated(true);
-
+      this.toastr.success('Đăng nhập thành công!', 'THÔNG BÁO');
       this.router.navigateByUrl('/home');
-      this.toastr.success('Đăng nhập thành công!', 'Success: ');
+
     } catch (error) {
       console.log("Lỗi login")
     }

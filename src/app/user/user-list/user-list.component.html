@@ -1,8 +1,8 @@
 <div class="wrapper col-md-12" style="height: 100%">
   <div class="row">
     <div class="sidebar col-md-2" data-color="purple" style="position: relative; height: 100vh; background-color: #FF6699">
-      <div class="row">
-        <div class="sidebar-wrapper col-md-12">
+      <div class="row" style="height: 100%">
+        <div class="sidebar-wrapper col-md-12" style="background: linear-gradient(#FF9999, #0066FF);">
           <div class="logo">
             <a href="http://www.creative-tim.com" class="simple-text">
               MOM&&KID
@@ -10,23 +10,41 @@
           </div>
 
           <ul class="nav">
+            <li class="active">
+              <a href="dashboard.html">
+                <i class="pe-7s-graph"></i>
+                <p>Dashboard</p>
+              </a>
+            </li>
             <li>
               <a routerLink="/listSchedule" class="nav-link link-dark">
-                <img src="../../../assets/image/lichtrinh.png" height="20" width="20"/>
-                <p>&nbsp; &nbsp; Quản lý lịch trình</p>
+                <i class='bx bx-calendar'></i>
+                <span style="margin-left: -8px">Quản lý lịch trình</span>
               </a>
             </li>
             <li>
               <a routerLink="/listDoctor" class="nav-link link-dark">
-
-                <img src="../../../assets/image/doctor.jpg" height="20" width="20"/>
-                <p>&nbsp; &nbsp; Quản lý bác sĩ</p>
+                <i class='bx bx-plus-medical'></i>
+                <span style="margin-left: -8px">Quản lý bác sĩ</span>
               </a>
             </li>
             <li>
               <a routerLink="/listUser"  class="nav-link link-dark" aria-current="page">
-                <img src="../../../assets/image/user.jpg" height="20" width="20"/>
-                <p>&nbsp; &nbsp; Quản lý người dùng</p>
+                <i class='bx bxs-user-circle'></i>
+                <span style="margin-left: -8px">Quản lý người dùng</span>
+              </a>
+            </li>
+            <li>
+              <a routerLink="/listAccount"  class="nav-link link-dark" aria-current="page">
+                <i class='bx bxs-user-account' ></i>
+                <span style="margin-left: -8px">Quản lý tài khoản</span>
+              </a>
+            </li>
+
+            <li>
+              <a routerLink="/listBlogs"  class="nav-link link-dark" aria-current="page">
+                <i class='bx bxs-user-account' ></i>
+                <span style="margin-left: -8px">Quản lý bài viết</span>
               </a>
             </li>
 
@@ -36,13 +54,17 @@
     </div>
     <div class="main-content col-md-10 bg-light">
       <div class="row">
-        <div class="col-md-12" style="height: 60px; background-color: rgba(255, 255, 255, 0.96);">
+        <div class="col-md-12" style="height: 60px; background: linear-gradient(to right, #FF9999, #FF3399);">
           <div class="row">
-            <div class="col-md-11">
+            <div class="col-md-11" style="height: 60px;">
 
             </div>
-            <div class="col-md-1">
-              <a href="" style="line-height: 50px;">Logout</a>
+            <div class="col-md-1" style="height: 60px;">
+              <div class="row">
+                <div class="col-md-12" style="height: 60px;">
+                  <a routerLink="/home" style="font-size: 16px;line-height: 60px"> <i class='bx bx-exit' style="font-size: 18px;"></i><span style="position: absolute ; margin-top: -2px">Thoát</span></a>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -51,7 +73,11 @@
       <div class="row">
         <div class="col-md-12 container-content">
           <div class="row">
-            <a routerLink="/listUser" href="" style="font-weight: bold; margin-top: 15px; margin-left: 30px; text-decoration: none; float: left;">Mẹ</a>
+            <div class="col-md-12">
+<!--              <div class="row">-->
+                <a routerLink="/listUser" href="" style="font-weight: bold; margin-top: 15px; margin-left: 30px; text-decoration: none; float: left;">Mẹ</a>
+<!--              </div>-->
+            </div>
           </div>
           <div class="row">
             <div class="col-md-12" style="margin-top: 15px">
@@ -84,7 +110,7 @@
                               <th style="width: 100%">Xóa</th>
                               </thead>
                               <tbody>
-                              <tr *ngFor="let user of users, index as i">
+                              <tr *ngFor="let user of users | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">
                                 <td>{{user.firstName}} {{user.lastName}}</td>
                                 <td>{{user.email}}</td>
                                 <td>{{user.phoneNumber}}</td>
@@ -99,6 +125,7 @@
                                   </button>
                                 </td>
                               </tr>
+                              <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
 
                               </tbody>
                             </table>

@@ -8,7 +8,7 @@ export interface Doctor {
   password?:string;
   role?:string;
   birthday?: string;
-  images?: string;
+  image?: string;
   address?: string;
   medical_degree?:string;
   rate?:number;

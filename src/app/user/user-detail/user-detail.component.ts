@@ -6,6 +6,7 @@ import {UserService} from "../../service/user/user.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {AuthService} from "../../service/auth/auth.service";
 import * as moment from 'moment';
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-user-detail',
@@ -20,7 +21,13 @@ export class UserDetailComponent implements OnInit {
   constructor(private userService: UserService,
               private router: Router,
               private auth: AuthService,
-              private activatedRoute: ActivatedRoute) {
+              private activatedRoute: ActivatedRoute,
+              private authService:AuthService,
+              private toastr: ToastrService) {
+    const isAuthenticated = this.authService.getIsAuthenticated();
+    if (!isAuthenticated) {
+      this.router.navigateByUrl('')
+    }
     this.activatedRoute.paramMap.subscribe(next => {
       const id = next.get('id');
       if (id != null) {
@@ -40,5 +47,6 @@ export class UserDetailComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
 
 }

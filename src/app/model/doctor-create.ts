@@ -5,5 +5,7 @@ export interface DoctorCreate {
   lastName?:string;
   phoneNumber?: string;
   email?: string;
+  address?:string;
+  image?:string;
   role?:string;
 }

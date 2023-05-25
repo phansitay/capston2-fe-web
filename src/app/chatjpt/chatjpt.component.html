@@ -1,0 +1,87 @@
+<div class="icon-chatbot" (click)="openGPT()">
+  <div class="name">Hỗ Trợ AI</div>
+  <div class="avatarfqa__live-icon__XptWP"  style="cursor: pointer; background-color: transparent;"><img
+    src="https://livechat-ui.fqa.vn/a0da9235b7a74c50315185d91b672a00.png"
+    style="width: 53px; height: 53px;"></div>
+</div>
+<div class="chatbot-container" style="opacity: 0; transform: scale(0);">
+  <div class="chat-us" style="display: flex; align-items: center;">
+    <div style="width: 48px; margin-right: 5px;">
+      <img style="width: 100%;" src="https://livechat-ui.fqa.vn/a0da9235b7a74c50315185d91b672a00.png"
+           alt="">
+    </div>
+    <span>Hỗ Trợ AI<i class="fa-regular fa-comments"></i></span>
+    <span class="close-chat" (click)="closeGPT()"><i class="fa-solid fa-xmark"></i></span>
+  </div>
+  <!--  <div class="chatbot-message-container">-->
+  <!--    &lt;!&ndash; Bot &ndash;&gt;-->
+  <!--    <div *ngFor="let item of this.answer">-->
+  <!--      &lt;!&ndash; Bot message &ndash;&gt;-->
+  <!--      <div style="display: flex; align-items: center; position: relative;">-->
+  <!--        <div style="max-width: 35px; padding-right: 5px; position: absolute; top: 12px;">-->
+  <!--          <img style="width: 100%;"-->
+  <!--               src="https://livechat-ui.fqa.vn/a0da9235b7a74c50315185d91b672a00.png" alt="">-->
+  <!--        </div>-->
+  <!--        <div style="margin-left: 35px;">-->
+  <!--          <div class="chatbot-message bot-message"-->
+  <!--               style="background-color: #f0f0f0; border-radius: 10px;">-->
+  <!--            {{item}}-->
+  <!--          </div>-->
+  <!--          <div style="text-align: right; font-size: 12px; color: #33333390;"><span>16:45</span></div>-->
+  <!--        </div>-->
+  <!--      </div>-->
+  <!--    </div>-->
+  <!--    &lt;!&ndash; Bot &ndash;&gt;-->
+  <!--    &lt;!&ndash; User &ndash;&gt;-->
+  <!--    <div *ngFor="let item of this.question" style="display: flex;justify-content: end;">-->
+  <!--      &lt;!&ndash; User message &ndash;&gt;-->
+  <!--      <div >-->
+  <!--        <div  class="chatbot-message user-message"-->
+  <!--              style="background-color: #ff884b; border-radius: 10px; color: #fff; width: fit-content;">-->
+  <!--          {{item}}-->
+  <!--        </div>-->
+  <!--        <div style="text-align: left; font-size: 12px; color: #33333390;"><span>{{currentDateTime}}</span></div>-->
+  <!--      </div>-->
+  <!--    </div>-->
+  <!--    &lt;!&ndash; User &ndash;&gt;-->
+  <!--  </div>-->
+  <div class="chatbot-message-container" >
+    <div *ngFor="let item of this.mapQA.entries()">
+      <!-- Bot -->
+      <div >
+        <div  style="display: flex;justify-content: end;">
+          <!-- User message -->
+          <div >
+            <div  class="chatbot-message user-message"
+                  style="background-color: #ff884b; border-radius: 10px; color: #fff; width: fit-content;">
+              {{item[0]}}
+            </div>
+            <div style="text-align: left; font-size: 12px; color: #33333390;"><span>{{currentDateTime}}</span></div>
+          </div>
+        </div>
+        <!-- Bot message -->
+        <div style="display: flex; align-items: center; position: relative;">
+          <div style="max-width: 35px; padding-right: 5px; position: absolute; top: 12px;">
+            <img style="width: 100%;"
+                 src="https://livechat-ui.fqa.vn/a0da9235b7a74c50315185d91b672a00.png" alt="">
+          </div>
+          <div style="margin-left: 35px;">
+            <div class="chatbot-message bot-message"
+                 style="background-color: #f0f0f0; border-radius: 10px;">
+              {{item[1]}}
+            </div>
+            <div style="text-align: right; font-size: 12px; color: #33333390;"><span>16:45</span></div>
+          </div>
+        </div>
+      </div>
+      <!-- Bot -->
+      <!-- User -->
+
+      <!-- User -->
+    </div>
+  </div>
+  <div class="chatbot-input-container">
+    <input (keyup.enter)="getGPT(questionGPTId.value)" #questionGPTId id="questionGPTId" type="text" class="chatbot-input" placeholder="Type your message here..." />
+    <button (click)="getGPT(questionGPTId.value)" class="chatbot-button"><i class="fa-regular fa-paper-plane"></i></button>
+  </div>
+</div>

@@ -3,6 +3,8 @@ import {FormControl, FormGroup} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ScheduleService} from "../../service/schedule/schedule.service";
 import {ScheduleList} from "../../model/schedule-list";
+import {AuthService} from "../../service/auth/auth.service";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-schedule-edit',
@@ -23,7 +25,13 @@ export class ScheduleEditComponent implements OnInit {
 
   constructor(private router: Router,
               private scheduleService: ScheduleService,
-              private activatedRoute: ActivatedRoute) {
+              private activatedRoute: ActivatedRoute,
+              private authService: AuthService,
+              private toastr: ToastrService) {
+    const isAuthenticated = this.authService.getIsAuthenticated();
+    if (!isAuthenticated) {
+      this.router.navigateByUrl('')
+    }
 
   }
 
@@ -58,4 +66,5 @@ export class ScheduleEditComponent implements OnInit {
     })
 
   }
+
 }

@@ -9,6 +9,7 @@ import {DoctorService} from "../../service/doctor/doctor.service";
 import {ApiScheduleList} from "../../model/api-schedule-list";
 import {ScheduleService} from "../../service/schedule/schedule.service";
 import {Schedule} from "../../model/schedule";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-schedule-list',
@@ -21,12 +22,13 @@ export class ScheduleListComponent implements OnInit {
   private subsctiption: Subscription;
   constructor(private authService: AuthService,
               private router: Router,
-              private scheduleService: ScheduleService) { }
+              private scheduleService: ScheduleService,
+              private toastr: ToastrService) { }
 
   ngOnInit(): void {
     const isAuthenticated = this.authService.getIsAuthenticated();
     if (!isAuthenticated) {
-      this.router.navigateByUrl('/login')
+      this.router.navigateByUrl('')
     }
     console.log("aaaaaaaa")
     console.log("ss",this.scheduleService.getAll())
@@ -44,4 +46,5 @@ export class ScheduleListComponent implements OnInit {
       }
     )
   }
+
 }

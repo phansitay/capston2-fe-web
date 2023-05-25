@@ -5,6 +5,7 @@ import {AuthService} from "../../service/auth/auth.service";
 import {ScheduleList} from "../../model/schedule-list";
 import {ScheduleService} from "../../service/schedule/schedule.service";
 import {ScheduleDetail} from "../../model/schedule-detail";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-schedule-detail',
@@ -15,6 +16,8 @@ export class ScheduleDetailComponent implements OnInit {
   scheduleListDetail: ScheduleDetail;
   scheduleList: ScheduleList[];
   idSchedule:number
+  currentPage: number = 1; // Trang hiện tại
+  itemsPerPage: number = 5; // Số mục hiển thị trên mỗi trang
 
   sendData() {
     const data = this.idSchedule
@@ -26,7 +29,13 @@ export class ScheduleDetailComponent implements OnInit {
   constructor(private scheduleService: ScheduleService,
               private router: Router,
               private auth: AuthService,
-              private activatedRoute: ActivatedRoute) {
+              private activatedRoute: ActivatedRoute,
+              private authService: AuthService,
+              private toastr: ToastrService) {
+    const isAuthenticated = this.authService.getIsAuthenticated();
+    if (!isAuthenticated) {
+      this.router.navigateByUrl('')
+    }
     this.activatedRoute.paramMap.subscribe(next => {
       const id = next.get('id');
       if (id != null) {
@@ -48,5 +57,4 @@ export class ScheduleDetailComponent implements OnInit {
   ngOnInit(): void {
     console.log("aaaaaaaaaaaaaaaaaaaaaaaa",this.idSchedule)
   }
-
 }

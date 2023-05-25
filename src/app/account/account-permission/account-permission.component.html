@@ -1,0 +1,205 @@
+<div class="wrapper col-md-12" style="height: 100%">
+  <div class="row">
+    <div class="sidebar col-md-2" data-color="purple" style="position: relative; height: 100vh;">
+      <div class="row" style="height: 100%">
+        <div class="sidebar-wrapper col-md-12" style="background: linear-gradient(#FF9999, #0066FF);">
+          <div class="logo">
+            <a href="http://www.creative-tim.com" class="simple-text">
+              MOM&&KID
+            </a>
+          </div>
+
+          <ul class="nav">
+            <li class="active">
+              <a href="dashboard.html">
+                <i class="pe-7s-graph"></i>
+                <p>Dashboard</p>
+              </a>
+            </li>
+            <li>
+              <a routerLink="/listSchedule" class="nav-link link-dark">
+                <i class='bx bx-calendar'></i>
+                <span style="margin-left: -8px">Quản lý lịch trình</span>
+              </a>
+            </li>
+            <li>
+              <a routerLink="/listDoctor" class="nav-link link-dark">
+                <i class='bx bx-plus-medical'></i>
+                <span style="margin-left: -8px">Quản lý bác sĩ</span>
+              </a>
+            </li>
+            <li>
+              <a routerLink="/listUser"  class="nav-link link-dark" aria-current="page">
+                <i class='bx bxs-user-circle'></i>
+                <span style="margin-left: -8px">Quản lý người dùng</span>
+              </a>
+            </li>
+            <li>
+              <a routerLink="/listAccount"  class="nav-link link-dark" aria-current="page">
+                <i class='bx bxs-user-account' ></i>
+                <span style="margin-left: -8px">Quản lý tài khoản</span>
+              </a>
+            </li>
+
+            <li>
+              <a routerLink="/listBlogs"  class="nav-link link-dark" aria-current="page">
+                <i class='bx bxs-user-account' ></i>
+                <span style="margin-left: -8px">Quản lý bài viết</span>
+              </a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="main-content col-md-10 bg-light" >
+      <div class="row">
+        <div class="col-md-12" style="height: 60px; background: linear-gradient(to right, #FF9999, #FF3399);">
+          <div class="row">
+            <div class="col-md-11" style="height: 60px;">
+
+            </div>
+            <div class="col-md-1" style="height: 60px;">
+              <div class="row">
+                <div class="col-md-12" style="height: 60px;">
+                  <a routerLink="/home" style="font-size: 16px;line-height: 60px"> <i class='bx bx-exit' style="font-size: 18px;"></i><span style="position: absolute ; margin-top: -2px">Thoát</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 container-content">
+
+          <div class="row">
+            <div class="col-md-12"  style="margin-top: 15px">
+              <a routerLink="/listAccount" href="" style="font-weight: bold; margin-left: 30px; text-decoration: none; float: left; position: absolute">Người dùng</a>
+              <a  href="" style="font-weight: bold; margin-top: 15px; margin-left: 30px; text-decoration: none;margin-left: 105px">&nbsp;/ Phân quyền</a>
+            </div>
+          </div>
+          <!--       Main        -->
+          <div class="col-lg-12" style="margin-top: 15px">
+            <div class="col">
+              <div class="card" style="margin-left: -15px; margin-right: -15px">
+                <!--          add-->
+                <div class="container-add">
+
+                  <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <form [formGroup]="accountFormEdit" (ngSubmit)="submit()">
+                            <div class="row">
+                              <div class="col-md-12">
+                                <div class="row">
+                                  <div class="col-md-4 txt">
+                                    <span class="tit">*</span><span>Người dùng : </span>
+                                    <span> {{accountDetailList.firstName}} {{accountDetailList.lastName}}</span>
+                                  </div>
+                                  <div class="col-md-4 txt">
+                                    <span>Quyền : </span>
+
+                                    <span *ngIf="accountDetailList.role=='doctor'"> Bác sĩ</span>
+                                    <span *ngIf="accountDetailList.role=='admin'"> Quản trị viên</span>
+                                    <span *ngIf="accountDetailList.role=='mom'"> Mẹ</span>
+                                    <span *ngIf="accountDetailList.role==''"> Mẹ</span>
+                                  </div>
+                                  <div class="col-md-2 txt">
+                                    <span>Cập nhật quyền</span>
+                                  </div>
+                                  <div class="col-md-2 inp">
+                                    <select class="form-select" name="" id="" formControlName="role">
+                                      <option value="mom">Mẹ</option>
+                                      <option value="doctor">Bác sĩ</option>
+                                      <option value="admin">Quản trị viên</option>
+                                    </select>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-12">
+                                <div class="row">
+                                  <div class="col-md-6">
+                                    <button  style="width: 100px;float: right" type="button"  class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModalThoat" >Quay lại</button>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <button  style="width: 100px; margin-left: 10px" type="button" class="btn addedit" data-bs-toggle="modal" data-bs-target="#myModalAdd"  >Cập nhật</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+
+                    </div>
+                    <div class="col-md-1">
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!--modal quay lại-->
+<div class="modal fade" id="myModalThoat">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Xác nhận</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <!-- Modal body -->
+      <div class="modal-body">
+        Bạn có thực sự muốn thoát khỏi trang này không ?
+      </div>
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Không</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" routerLink="/listAccount">Có</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+<!--modal thêm mới-->
+<div class="modal fade" id="myModalAdd">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Xác nhận</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <!-- Modal body -->
+      <div class="modal-body">
+        Bạn thực sự muốn cập nhật quyền của tài khoản này không ?
+      </div>
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Không</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="submit()">Có</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+

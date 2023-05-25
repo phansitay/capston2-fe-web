@@ -6,6 +6,8 @@ import {AuthService} from "../../service/auth/auth.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {DoctorService} from "../../service/doctor/doctor.service";
 import {UserService} from "../../service/user/user.service";
+import {PaginationService} from "ngx-pagination";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-user-list',
@@ -15,6 +17,8 @@ import {UserService} from "../../service/user/user.service";
 export class UserListComponent implements OnInit {
   userList: ApiList;
   users: Doctor[];
+  currentPage: number = 1; // Trang hiện tại
+  itemsPerPage: number = 5; // Số mục hiển thị trên mỗi trang
   id: string;
   firstName:string;
   lastName: string
@@ -23,7 +27,9 @@ export class UserListComponent implements OnInit {
   constructor(private authService: AuthService,
               private router: Router,
               private userService: UserService,
-              private activatedRoute: ActivatedRoute,) {
+              private activatedRoute: ActivatedRoute,
+              private aa: PaginationService,
+              private toastr: ToastrService) {
     const isAuthenticated = this.authService.getIsAuthenticated();
     if (!isAuthenticated) {
       this.router.navigateByUrl('')
@@ -38,10 +44,8 @@ export class UserListComponent implements OnInit {
           console.log("1111"+id);
           console.log("2222"+this.userDelete.id)
           this.userService.deleteById(this.userDelete.id).subscribe(next => {
-            this.router.navigateByUrl('');
-            alert("Xóa thành công")
-            // this.toastr.success('Xóa thành công!', 'Success');
-            // this.toast.warning('Xóa thành công', 'Thông báo')
+            this.toastr.success("Xóa người dùng thành công!", "Thông báo");''
+            this.router.navigateByUrl('/listUser');
           });
         });
       }
@@ -77,4 +81,5 @@ export class UserListComponent implements OnInit {
       this.lastName=lastName;
       console.log("id",id)
   }
+
 }
