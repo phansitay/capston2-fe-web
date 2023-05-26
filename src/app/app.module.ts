@@ -32,6 +32,7 @@ import { HomeComponent } from './home-page/Home/home/home.component';
 import { ProfileComponent } from './home-page/Home/profile/profile.component';
 import { RegisterComponent } from './login/register/register.component';
 import { DoctorUpdateComponent } from './doctor/doctor-update/doctor-update.component';
+import { UserListBmiComponent } from './user/user-list-bmi/user-list-bmi.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { DoctorUpdateComponent } from './doctor/doctor-update/doctor-update.comp
     ProfileComponent,
     RegisterComponent,
     DoctorUpdateComponent,
+    UserListBmiComponent,
   ],
   imports: [
     BrowserModule,
