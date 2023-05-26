@@ -90,8 +90,8 @@
                               <div class="col-md-12">
                                 <div class="row">
                                   <div class="col-md-7"><h4 class="title">Danh sách bác sĩ</h4></div>
-                                  <div class="col-md-5">
-                                    <button class="btn btn-primary button-add" type="submit" routerLink="/doctorCreate">
+                                  <div class="col-md-5" >
+                                    <button style="margin-left: 350px" class="btn btn-primary button-add" type="submit" routerLink="/doctorCreate">
                                       Thêm bác sĩ
                                     </button>
                                   </div>
@@ -105,16 +105,22 @@
                               <th>Họ tên</th>
                               <th>Số điện thoại</th>
                               <th>Email</th>
-                              <th style="width: 100%">Sửa</th>
+                              <th>Sửa</th>
+                              <th style="width: 100%">Xóa</th>
                               </thead>
                               <tbody>
                               <tr *ngFor="let dot of doctors | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">
                                 <td>{{dot.firstName}} {{dot.lastName}}</td>
                                 <td>{{dot.phoneNumber}}</td>
                                 <td>{{dot.email}}</td>
-                                <td style="width: 100%">
+                                <td >
                                   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal"  [routerLink]="['/doctorUpdate',dot.id]">
                                     <i class='bx bx-edit'></i>
+                                  </button>
+                                </td>
+                                <td style="width: 100%">
+                                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModalDelete" (click)="showId(dot.id,dot.firstName,dot.lastName)">
+                                    <i class='bx bxs-trash-alt'></i>
                                   </button>
                                 </td>
                               </tr>
@@ -137,3 +143,29 @@
   </div>
 </div>
 
+<!-- The Modal -->
+<div class="modal fade" id="myModalDelete">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Xác nhận</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        Bạn có thực sự muốn xóa bác sĩ
+        <span>{{firstName}} {{lastName}}</span>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" [routerLink]="['/doctorDelete',id]">Delete</button>
+      </div>
+
+    </div>
+  </div>
+</div>

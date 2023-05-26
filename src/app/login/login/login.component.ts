@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../../service/auth/auth.service";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {ToastrService} from "ngx-toastr";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-login',
@@ -11,10 +12,14 @@ import {ToastrService} from "ngx-toastr";
 export class LoginComponent implements OnInit {
   email: string | undefined;
   password: string | undefined;
-
+  user: Account;
+  id:number;
+  private subsctiption: Subscription;
   constructor(private authService: AuthService,
               private router: Router,
-              private toastr: ToastrService) {}
+              private toastr: ToastrService,
+              private activatedRoute: ActivatedRoute,
+              ) {}
 
   async login() {
     const email = this.email;
@@ -24,6 +29,8 @@ export class LoginComponent implements OnInit {
       const token = response.accessToken;
       const firstName = response.data.firstName;
       const lastName = response.data.lastName;
+      const id = response.data.id;
+      this.id=id;
       const phone = response.data.phoneNumber;
       const address = response.data.address;
       const role = response.data.role;
@@ -39,7 +46,7 @@ export class LoginComponent implements OnInit {
       localStorage.setItem("email",email);
       localStorage.setItem("address",address);
       localStorage.setItem("phone",phone)
-      console.log("phone"+phone)
+      console.log("phone"+email)
       this.authService.setIsAuthenticated(true);
       this.toastr.success('Đăng nhập thành công!', 'THÔNG BÁO');
       this.router.navigateByUrl('/home');
@@ -49,7 +56,11 @@ export class LoginComponent implements OnInit {
     }
   }
   ngOnInit(): void {
-  }
+
+        // @ts-ignore
+        // tslint:disable-next-line:no-shadowed-variable
+
+      }
 
   onSubmit() {
 

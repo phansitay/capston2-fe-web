@@ -14,7 +14,7 @@ import {HttpErrorResponse} from "@angular/common/http";
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  employeeFormCreate: FormGroup;
+  doctorFormCreate: FormGroup;
   constructor(private userService: DoctorService,
               private toastr: ToastrService,
               private router: Router,
@@ -26,13 +26,13 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.employeeFormCreate = new FormGroup(
+    this.doctorFormCreate = new FormGroup(
       {
         password: new FormControl('',[Validators.required,Validators.pattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{6,}$")]),
         // username: new FormControl('',[Validators.required,Validators.minLength(6),Validators.maxLength(45),Validators.pattern("^[A-z_](\\w|\\.|_){5,45}$")]),
         confirmPassword: new FormControl('',[Validators.required]),
-        firstName: new FormControl('', [Validators.required,Validators.minLength(6),Validators.maxLength(45),Validators.pattern("^[a-zA-Z]+$/")]),
-        lastName: new FormControl('', [Validators.required,Validators.minLength(6),Validators.maxLength(45),Validators.pattern("^[a-zA-Z]+$/")]),
+        firstName: new FormControl('', [Validators.required,Validators.minLength(6),Validators.maxLength(45),Validators.pattern("^[a-zA-Zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]+(\\s[a-zA-Zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]+)*$")]),
+        lastName: new FormControl('', [Validators.required,Validators.maxLength(45),Validators.pattern("^[a-zA-Zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]+(\\s[a-zA-Zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]+)*$")]),
         phoneNumber: new FormControl('', [Validators.required, Validators.pattern("^(0\\d{9,10})$")]),
         email: new FormControl('',[Validators.required, Validators.email,Validators.maxLength(256)]),
         address: new FormControl('',[Validators.required, Validators.minLength(3), Validators.maxLength(100)]),
@@ -53,7 +53,7 @@ export class RegisterComponent implements OnInit {
 
   submit() {
     console.log("bắt đầu")
-      this.userService.save(this.employeeFormCreate.value).subscribe(
+      this.userService.save(this.doctorFormCreate.value).subscribe(
         () => {
           this.toastr.success('Đăng kí tài khoản thành công!', 'Thông báo: ');
           this.router.navigateByUrl("")

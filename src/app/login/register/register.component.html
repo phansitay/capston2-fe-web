@@ -1,101 +1,139 @@
-<div class="row" style="padding: 0;margin: 0">
-  <div class="col-md-12" >
-    <H1 style="text-align: center;text-transform: uppercase">Đăng kí tài khoản</H1>
-  </div>
-</div>
-
-<div class="row" style="margin-top: 40px; margin-left: 0px; margin-right: 0px">
-  <div class="col-md-2"></div>
-  <div class="col-md-8">
-    <div class="row">
-      <div class="col-md-12">
-        <form [formGroup]="employeeFormCreate" (ngSubmit)="submit()">
-          <!-- 2 column grid layout with text inputs for the first and last names -->
-          <div class="row mb-4">
-            <div class="col">
-              <div class="form-outline">
-                <input formControlName="firstName" type="text"  class="form-control" />
-                <label class="form-label" >Họ lót</label>
-                <span class="validate" *ngIf="employeeFormCreate.controls.firstName.touched && employeeFormCreate.controls.fullName.errors?.required">Tên không được để trống !.</span>
-                <span class="validate" *ngIf="employeeFormCreate.controls.firstName.touched && employeeFormCreate.controls.fullName.errors?.minlength">Tên phải có ít nhất 6 ký tự !</span>
-                <span class="validate" *ngIf="employeeFormCreate.controls.firstName.touched && employeeFormCreate.controls.fullName.errors?.maxlength">Tên không được quá 45 ký tự !</span>
-                <span class="validate" *ngIf="employeeFormCreate.controls.firstName.touched && employeeFormCreate.controls.fullName.errors?.pattern">Tên không đúng định dạng, vui lòng nhập lại!</span>
-              </div>
-            </div>
-            <div class="col">
-              <div class="form-outline">
-                <input formControlName="lastName" type="text"  class="form-control" />
-                <label class="form-label" >Tên</label>
-                <span class="validate" *ngIf="employeeFormCreate.controls.lastName.touched && employeeFormCreate.controls.lastName.errors?.required">Tên không được để trống !.</span>
-                <span class="validate" *ngIf="employeeFormCreate.controls.lastName.touched && employeeFormCreate.controls.lastName.errors?.minlength">Tên phải có ít nhất 6 ký tự !</span>
-                <span class="validate" *ngIf="employeeFormCreate.controls.lastName.touched && employeeFormCreate.controls.lastName.errors?.maxlength">Tên không được quá 45 ký tự !</span>
-                <span class="validate" *ngIf="employeeFormCreate.controls.lastName.touched && employeeFormCreate.controls.lastName.errors?.pattern">Tên không đúng định dạng, vui lòng nhập lại !</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Text input -->
-          <div class="form-outline mb-4">
-            <input formControlName="email" type="text"  class="form-control" />
-            <label class="form-label">Email</label>
-            <span class="validate" *ngIf="(employeeFormCreate.controls.email.dirty || employeeFormCreate.controls.email.touched) && employeeFormCreate.controls.email.errors?.required">Email không được để trống !</span>
-            <span class="validate" *ngIf="(employeeFormCreate.controls.email.dirty || employeeFormCreate.controls.email.touched) &&  employeeFormCreate.controls.email.errors?.email">Email không đúng định dạng, vui lòng nhập lại email !</span>
-          </div>
-
-          <!-- Text input -->
-          <div class="form-outline mb-4">
-            <input formControlName="password" type="password"  class="form-control" />
-            <label class="form-label" >Mật khẩu</label>
-            <span class="validate" *ngIf="employeeFormCreate.controls.password.touched && employeeFormCreate.controls.password.errors?.required">Mật khẩu không được để trống !</span>
-            <span class="validate" *ngIf="employeeFormCreate.controls.password.touched && employeeFormCreate.controls.password.errors?.pattern">Mật khẩu phải có ít nhất 6 ký tự ,ít nhật 1 ký tự hoa, ký tự thường ,một số và ký tự đặc biệt!</span>
-          </div>
-
-          <!-- Email input -->
-          <div class="form-outline mb-4">
-            <input formControlName="confirmPassword" type="password"  class="form-control" />
-            <label class="form-label">Nhập lại mật khẩu</label>
-            <span class="validate" *ngIf="employeeFormCreate.controls.confirmPassword.touched && employeeFormCreate.controls.confirmPassword.errors?.required">Nhập lại mật khẩu không được để trống !</span>
-            <span class="validate" *ngIf="employeeFormCreate.hasError('not') && employeeFormCreate.controls.confirmPassword.touched">Mật khẩu không trùng khớp</span>
-          </div>
-          <!-- Number input -->
-          <div class="form-outline mb-4">
-            <input formControlName="phoneNumber" type="number"  class="form-control" />
-            <label class="form-label" >Số điện thoại</label>
-            <span class="validate" *ngIf="employeeFormCreate.controls.phoneNumber.touched && employeeFormCreate.controls.phoneNumber.errors?.required">Số điện thoại không được để trống !</span>
-            <span class="validate" *ngIf="employeeFormCreate.controls.phoneNumber.touched && employeeFormCreate.controls.phoneNumber.errors?.pattern">Số điện thoại không đúng định dạng <span style="color: blue">0xxxxxxxxx</span>, vui lòng nhập số điện thoại.</span>
-          </div>
-
-          <!-- Message input -->
-          <div class="form-outline mb-4">
-            <input formControlName="address" type="text" class="form-control" />
-            <label class="form-label" >Địa chỉ</label>
-            <span class="validate" *ngIf="(employeeFormCreate.controls.address.dirty || employeeFormCreate.controls.address.touched) && employeeFormCreate.controls.address.errors?.required">Địa chỉ không được để trống !</span>
-            <span class="validate" *ngIf="employeeFormCreate.controls.address.touched && employeeFormCreate.controls.address.errors?.minlength">Địa chỉ phải có ít nhất 3 ký tự !</span>
-            <span class="validate" *ngIf="employeeFormCreate.controls.address.touched && employeeFormCreate.controls.address.errors?.maxlength">Địa chỉ không được quá 100 ký tự !</span>
-          </div>
-
-          <!-- Checkbox -->
-          <div class="form-check d-flex justify-content-center mb-4">
-            <input class="form-check-input me-2" type="checkbox" value="" id="form6Example8" checked />
-            <label class="form-check-label" for="form6Example8"> Đăng kí tài khoản? </label>
-          </div>
-
-          <!-- Submit button -->
-          <div class="row">
-            <div class="col-md-6">
-              <button type="button" routerLink="" class="btn btn-primary mb-2" style="float: right">Trở lại</button>
-            </div>
-            <div class="col-md-6">
-              <button type="submit" class="btn btn-primary mb-2">Đăng kí</button>
-            </div>
-          </div>
-
-
-        </form>
-
-
+<div class="row" style="margin: 0">
+  <div class="col-md-12" style="background-color: #9A616D; height: 100vh; padding: 0">
+    <div class="row" style="padding: 0;margin: 0">
+      <div class="col-md-12" >
+        <H1 style="text-align: center;text-transform: uppercase">Đăng kí tài khoản</H1>
       </div>
     </div>
+
+    <div class="row" style="margin-top: 40px; margin-left: 0px; margin-right: 0px; ">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-12" style="padding: 10px; border: 1px solid; padding-top: 30px; padding-bottom: 30px; border-radius: 5px ;background-color: white">
+            <form [formGroup]="doctorFormCreate" (ngSubmit)="submit()">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="row">
+                    <div class="col-md-3 txt">
+                      <span class="tit">*</span><span>Họ lót</span>
+                    </div>
+                    <div class="col-md-9 inp">
+                      <input formControlName="firstName" class="form-control" type="text" placeholder="Ex: Phan Sỉ">
+                      <span class="validate" *ngIf="doctorFormCreate.controls.firstName.touched && doctorFormCreate.controls.firstName.errors?.required">Tên không được để trống !.</span>
+                      <span class="validate" *ngIf="doctorFormCreate.controls.firstName.touched && doctorFormCreate.controls.firstName.errors?.minlength">Tên phải có ít nhất 6 ký tự !</span>
+                      <span class="validate" *ngIf="doctorFormCreate.controls.firstName.touched && doctorFormCreate.controls.firstName.errors?.maxlength">Tên không được quá 45 ký tự !</span>
+                      <span class="validate" *ngIf="doctorFormCreate.controls.firstName.touched && doctorFormCreate.controls.firstName.errors?.pattern">Tên không đúng định dạng, vui lòng nhập lại!</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="row">
+                    <div class="col-md-3 txt">
+                      <span class="tit">*</span><span>Tên</span>
+                    </div>
+                    <div class="col-md-9 inp">
+                      <input formControlName="lastName" class="form-control" type="text" placeholder="Ex: Tây">
+                      <span class="validate" *ngIf="doctorFormCreate.controls.lastName.touched && doctorFormCreate.controls.lastName.errors?.required">Tên không được để trống !.</span>
+                      <span class="validate" *ngIf="doctorFormCreate.controls.lastName.touched && doctorFormCreate.controls.lastName.errors?.maxlength">Tên không được quá 45 ký tự !</span>
+                      <span class="validate" *ngIf="doctorFormCreate.controls.lastName.touched && doctorFormCreate.controls.lastName.errors?.pattern">Tên không đúng định dạng, vui lòng nhập lại !</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="row">
+                    <div class="col-md-3 txt">
+                      <span class="tit">*</span><span>Mật khẩu </span>
+                    </div>
+                    <div class="col-md-9 inp">
+                      <input formControlName="password" class="form-control" type="password" placeholder="Ex: Cpvvtpnpp123">
+                      <span class="validate" *ngIf="doctorFormCreate.controls.password.touched && doctorFormCreate.controls.password.errors?.required">Mật khẩu không được để trống !</span>
+                      <span class="validate" *ngIf="doctorFormCreate.controls.password.touched && doctorFormCreate.controls.password.errors?.pattern">Mật khẩu phải có ít nhất 6 ký tự ,ít nhật 1 ký tự hoa, ký tự thường ,một số và ký tự đặc biệt!</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="row">
+                    <div class="col-md-3 txt">
+                      <span class="tit">*</span><span>Nhập lại Mật khẩu </span>
+                    </div>
+                    <div class="col-md-9 inp">
+                      <input formControlName="confirmPassword" class="form-control" type="password" placeholder="Ex: Cpvvtpnpp123">
+                      <span class="validate" *ngIf="doctorFormCreate.controls.confirmPassword.touched && doctorFormCreate.controls.confirmPassword.errors?.required">Nhập lại mật khẩu không được để trống !</span>
+                      <span class="validate" *ngIf="doctorFormCreate.hasError('not') && doctorFormCreate.controls.confirmPassword.touched">Mật khẩu không trùng khớp</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="row">
+                    <div class="col-md-3 txt">
+                      <span class="tit">*</span><span>Số điện thoại </span>
+                    </div>
+                    <div class="col-md-9 inp">
+                      <input formControlName="phoneNumber" class="form-control" type="text" placeholder="Ex: 0366009104">
+                      <span class="validate" *ngIf="doctorFormCreate.controls.phoneNumber.touched && doctorFormCreate.controls.phoneNumber.errors?.required">Số điện thoại không được để trống !</span>
+                      <span class="validate" *ngIf="doctorFormCreate.controls.phoneNumber.touched && doctorFormCreate.controls.phoneNumber.errors?.pattern">Số điện thoại không đúng định dạng <span style="color: blue">0xxxxxxxxx</span>, vui lòng nhập số điện thoại.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="row">
+                    <div class="col-md-3 txt">
+                      <span class="tit">*</span><span>Email </span>
+                    </div>
+                    <div class="col-md-9 inp">
+                      <input formControlName="email" class="form-control" type="text" placeholder="Ex: phansitay@gmail.com">
+                      <span class="validate" *ngIf="(doctorFormCreate.controls.email.dirty || doctorFormCreate.controls.email.touched) && doctorFormCreate.controls.email.errors?.required">Email không được để trống !</span>
+                      <span class="validate" *ngIf="(doctorFormCreate.controls.email.dirty || doctorFormCreate.controls.email.touched) &&  doctorFormCreate.controls.email.errors?.email">Email không đúng định dạng, vui lòng nhập lại email !</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="row">
+                    <div class="col-md-3 txt">
+                      <span class="tit">*</span><span>Địa chỉ</span>
+                    </div>
+                    <div class="col-md-9 inp">
+                      <input formControlName="address" class="form-control" type="text" placeholder="Ex: 592 Trưng Nữ Vương">
+                      <span class="validate" *ngIf="(doctorFormCreate.controls.address.dirty || doctorFormCreate.controls.address.touched) && doctorFormCreate.controls.address.errors?.required">Địa chỉ không được để trống !</span>
+                      <span class="validate" *ngIf="doctorFormCreate.controls.address.touched && doctorFormCreate.controls.address.errors?.minlength">Địa chỉ phải có ít nhất 3 ký tự !</span>
+                      <span class="validate" *ngIf="doctorFormCreate.controls.address.touched && doctorFormCreate.controls.address.errors?.maxlength">Địa chỉ không được quá 100 ký tự !</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <button  style="width: 100px;float: right" type="button"  class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModalThoat" routerLink="" >Quay lại</button>
+                    </div>
+                    <div class="col-md-6">
+                      <button [disabled]="doctorFormCreate.invalid"  style="width: 100px; margin-left: 10px" type="button" class="btn addedit" data-bs-toggle="modal" data-bs-target="#myModalAdd" (click)="submit()">Đăng kí</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+
   </div>
-  <div class="col-md-2"></div>
 </div>

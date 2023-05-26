@@ -1,0 +1,45 @@
+.nav-pills .nav-link.active, .bg-sub{
+  color: #fff;
+  background-color: #F26b38;
+}
+
+.bg-close{
+  color: #fff;
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+.page-link , .bg-icon{
+  color: #F26b38;
+}
+
+.font-size{
+  font-size: 14px;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.mg-lx-2{
+  margin-left: 0.5rem;
+}
+
+.image-delete{
+  width: 100%;
+}
+
+.link-dark:hover{
+  background-color: #61fafa;
+}
+
+
+.btn-add-doctor{
+  background-color: #F26b38;
+  height: 40px;
+  color: white;
+  border: none;
+  width: 100px;
+  border-radius: 5px;
+  margin-left: 180px;
+}

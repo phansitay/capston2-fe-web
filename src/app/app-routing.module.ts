@@ -19,6 +19,7 @@ import {HomeComponent} from "./home-page/Home/home/home.component";
 import {ProfileComponent} from "./home-page/Home/profile/profile.component";
 import {RegisterComponent} from "./login/register/register.component";
 import {DoctorUpdateComponent} from "./doctor/doctor-update/doctor-update.component";
+import {UserListBmiComponent} from "./user/user-list-bmi/user-list-bmi.component";
 
 
 const routes: Routes = [
@@ -26,7 +27,9 @@ const routes: Routes = [
   {path: 'listDoctor',component:DoctorListComponent},
   {path: 'doctorCreate',component:DoctorCretaeComponent},
   {path: 'doctorUpdate/:id',component:DoctorUpdateComponent},
+  {path: 'doctorDelete/:id',component:DoctorListComponent},
   {path: 'listUser',component:UserListComponent},
+  {path: 'listUserDetail/:id',component:UserListBmiComponent},
   {path: 'detailUser/:id', component: UserDetailComponent},
   {path: 'userDelete/:id',component:UserListComponent},
 

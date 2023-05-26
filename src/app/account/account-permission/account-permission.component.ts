@@ -71,7 +71,7 @@ export class AccountPermissionComponent implements OnInit {
   submit() {
     this.accountService.updateAccount(this.id,this.accountFormEdit.value).subscribe(value =>
     {
-      console.log("Cập nhật thành công");
+      this.toastr.success("Cập nhật quyền người dùng thành công","Thông báo")
       this.router.navigateByUrl("/listAccount");
     })
 

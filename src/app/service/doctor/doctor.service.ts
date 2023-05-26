@@ -28,12 +28,13 @@ export class DoctorService {
   updateDoctor(id:string,doctor: Doctor): Observable<Doctor> {
     return this.httpClient.patch<Doctor>(this.URL_API_EDIT+'/'+id,doctor);
   }
-  //
-  // getDoctorById(id: number): Observable<Doctor> {
-  //   return this.httpClient.get<Doctor>(this.URL_API+'/'+id);
-  // }
-  //
-  // deleteById(id: number | undefined): Observable<any> {
-  //   return this.httpClient.delete(this.URL_API+'/'+id);
-  // }
-}
+  //get id delete
+  getDoctorById(id: number): Observable<Doctor> {
+    return this.httpClient.get<Doctor>(this.URL_API_EDIT+'/'+id);
+  }
+
+  deleteDoctorById(id: number | undefined): Observable<any> {
+    return this.httpClient.delete(this.URL_API_EDIT + '/' + id);
+  }
+
+  }

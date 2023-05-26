@@ -16,6 +16,7 @@ import {ToastrService} from "ngx-toastr";
 export class UserDetailComponent implements OnInit {
   userListDetail: UserDetail;
   babyList: Baby[];
+  idBaby:number
   private subsctiption: Subscription;
 
   constructor(private userService: UserService,
@@ -35,6 +36,8 @@ export class UserDetailComponent implements OnInit {
         // tslint:disable-next-line:no-shadowed-variable
         this.userListDetail = this.userService.getUserByIdDetail(id).subscribe(next => {
           this.userListDetail = next;
+          this.idBaby=next.id;
+          console.log("id"+this.idBaby)
           this.babyList = next.babies;
           console.log("baby",this.babyList)
           console.log("chuoi ",this.userListDetail);
@@ -49,4 +52,8 @@ export class UserDetailComponent implements OnInit {
   }
 
 
+  sendData() {
+    const data = this.idBaby
+    this.userService.setData(data);
+  }
 }

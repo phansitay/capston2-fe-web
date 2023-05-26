@@ -90,7 +90,7 @@
                             <div class="row">
                               <div class="col-md-12">
                                 <div class="row">
-                                  <div class="col-md-7"><h4 class="title">Danh sách người dùng</h4></div>
+                                  <div class="col-md-7"><h4 class="title">Danh sách trẻ em</h4></div>
                                   <div class="col-md-5">
                                   </div>
                                 </div>
@@ -102,14 +102,20 @@
                               <thead>
                               <th>Tên con</th>
                               <th>Ngày sinh</th>
-                              <th  style="width: 100%">Giới tính</th>
+                              <th>Giới tính</th>
+                              <th  style="width: 100%">Chi tiết</th>
                               </thead>
                               <tbody>
                               <tr *ngFor="let userDetail of babyList, index as i">
                                 <td>{{userDetail.name}}</td>
                                 <td>{{userDetail.birthDate | date: 'yyyy-MM-dd'}}</td>
-                                <td style="width: 100%" *ngIf="userDetail.isMale == true">Nam</td>
-                                <td style="width: 100%" *ngIf="userDetail.isMale == false">Nữ</td>
+                                <td *ngIf="userDetail.isMale == true">Nam</td>
+                                <td  *ngIf="userDetail.isMale == false">Nữ</td>
+                                <td style="width: 100%" >
+                                  <button (click)="sendData()" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal"  [routerLink]="['/listUserDetail',userDetail.id]">
+                                    <i class='bx bx-edit'></i>
+                                  </button>
+                                </td>
                               </tr>
                               </tbody>
                             </table>

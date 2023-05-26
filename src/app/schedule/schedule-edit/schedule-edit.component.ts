@@ -62,7 +62,7 @@ export class ScheduleEditComponent implements OnInit {
   submit() {
     this.scheduleService.updateSchedule(this.id,this.scheduleFormEdit.value).subscribe(value =>
     {
-        console.log("Cập nhật thành công")
+        this.toastr.success("Cập nhật lịch trình thành công","Thông báo")
     })
 
   }
