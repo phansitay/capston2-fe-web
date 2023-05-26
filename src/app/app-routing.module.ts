@@ -17,12 +17,15 @@ import {BlogDetailComponent} from "./blogs/blog-detail/blog-detail.component";
 import {HomeBlogComponent} from "./home-page/Home/home-blog/home-blog.component";
 import {HomeComponent} from "./home-page/Home/home/home.component";
 import {ProfileComponent} from "./home-page/Home/profile/profile.component";
+import {RegisterComponent} from "./login/register/register.component";
+import {DoctorUpdateComponent} from "./doctor/doctor-update/doctor-update.component";
 
 
 const routes: Routes = [
   {path: '',component:LoginComponent},
   {path: 'listDoctor',component:DoctorListComponent},
   {path: 'doctorCreate',component:DoctorCretaeComponent},
+  {path: 'doctorUpdate/:id',component:DoctorUpdateComponent},
   {path: 'listUser',component:UserListComponent},
   {path: 'detailUser/:id', component: UserDetailComponent},
   {path: 'userDelete/:id',component:UserListComponent},
@@ -39,6 +42,7 @@ const routes: Routes = [
   {path: 'listBlogs', component: BlogListComponent},
   {path: 'blogDelete/:id', component: BlogListComponent},
   {path: 'detailBlog/:id', component: BlogDetailComponent},
+  {path: 'register', component: RegisterComponent},
   // {path: 'momAndKid', component: HeaderComponent},
 ];
 

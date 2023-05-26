@@ -10,17 +10,21 @@ import {Doctor} from "../../../model/doctor";
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  user: Doctor;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  address: string;
 
   constructor(private authService: AuthService,
               private toastr: ToastrService,
               private router: Router) {
-    this.user.firstName=localStorage.getItem("firstName");
-    this.user.lastName=localStorage.getItem("lastName");
-    this.user.email=localStorage.getItem("email");
-    this.user.phoneNumber=localStorage.getItem("phone");
-    this.user.address=localStorage.getItem("address");
-    console.log("vl"+this.user.firstName);
+    console.log("Ơ")
+    this.firstName= localStorage.getItem("firstName");
+    this.lastName=localStorage.getItem("lastName");
+    this.email=localStorage.getItem("email");
+    this.phone=localStorage.getItem("phone");
+    this.address=localStorage.getItem("address");
   }
 
   ngOnInit(): void {

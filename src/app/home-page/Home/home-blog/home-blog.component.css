@@ -98,3 +98,10 @@
   display: block;
 }
 
+.ft{
+  position: fixed;
+  left: 0;
+  bottom: 0px;
+  /*width: 100%;*/
+}
+

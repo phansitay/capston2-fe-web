@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
       const token = response.accessToken;
       const firstName = response.data.firstName;
       const lastName = response.data.lastName;
-      const phone = response.data.phone;
+      const phone = response.data.phoneNumber;
       const address = response.data.address;
       const role = response.data.role;
       // lưu token vào localStorage
@@ -35,16 +35,17 @@ export class LoginComponent implements OnInit {
       console.log("login thành công")
       localStorage.setItem("role",role);
       localStorage.setItem("lastName",lastName);
-      localStorage.setItem("firstName",lastName);
+      localStorage.setItem("firstName",firstName);
       localStorage.setItem("email",email);
       localStorage.setItem("address",address);
       localStorage.setItem("phone",phone)
+      console.log("phone"+phone)
       this.authService.setIsAuthenticated(true);
       this.toastr.success('Đăng nhập thành công!', 'THÔNG BÁO');
       this.router.navigateByUrl('/home');
 
     } catch (error) {
-      console.log("Lỗi login")
+      this.toastr.error("Tài khoản hoặc mật khẩu không chính xác!","Thông báo")
     }
   }
   ngOnInit(): void {
@@ -53,4 +54,8 @@ export class LoginComponent implements OnInit {
   onSubmit() {
 
   }
+
+  // register() {
+  //   this.router.navigateByUrl("/register");
+  // }
 }

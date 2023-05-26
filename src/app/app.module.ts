@@ -30,6 +30,8 @@ import {BlogDetailComponent} from "./blogs/blog-detail/blog-detail.component";
 import { HomeBlogComponent } from './home-page/Home/home-blog/home-blog.component';
 import { HomeComponent } from './home-page/Home/home/home.component';
 import { ProfileComponent } from './home-page/Home/profile/profile.component';
+import { RegisterComponent } from './login/register/register.component';
+import { DoctorUpdateComponent } from './doctor/doctor-update/doctor-update.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +54,8 @@ import { ProfileComponent } from './home-page/Home/profile/profile.component';
     HomeBlogComponent,
     HomeComponent,
     ProfileComponent,
+    RegisterComponent,
+    DoctorUpdateComponent,
   ],
   imports: [
     BrowserModule,

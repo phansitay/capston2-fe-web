@@ -114,6 +114,7 @@
                                 <td *ngIf="account.role == 'doctor'">Bác sĩ</td>
                                 <td *ngIf="account.role == 'admin'">Quản trị viên</td>
                                 <td *ngIf="account.role == 'mom'">Người mẹ</td>
+                                <td *ngIf="account.role == ''">Người mẹ</td>
                                 <td style="width: 100%">
                                   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal"  [routerLink]="['/permission/account',account.id]">
                                     <i class='bx bx-edit'></i>

@@ -60,26 +60,28 @@
         <div class="row">
           <div class="col-md-3"></div>
           <div class="col-md-6">
+            <div class="row" style="margin-top: 30px">
+              <h3>Thông tin tài khoản</h3>
+            </div>
             <div class="row">
-              <div class="col-md-12">
-                <table>
-                  <tr>
-                    <td>Tên người dùng</td>
-                    <td>{{user.firstName}} {{user.lastName}}</td>
-                  </tr>
-                  <tr>
-                    <td>Số địa thoại</td>
-                    <td>{{user.phoneNumber}}</td>
-                  </tr>
-                  <tr>
-                    <td>Email</td>
-                    <td>{{user.email}}</td>
-                  </tr>
-                  <tr>
-                    <td>Địa chỉ</td>
-                    <td>{{user.address}}</td>
-                  </tr>
-                </table>
+              <div class="col-md-12" style="border: 1px springgreen;border-radius: 5px; margin-top: 40px">
+                <div class="row" style="margin-top: 20px">
+                  <div class="col-md-4">Tên người dùng</div>
+                  <div class="col-md-8">{{firstName}} {{lastName}}</div>
+                </div>
+                <div class="row" style="margin-top: 20px">
+                  <div class="col-md-4">Email</div>
+                  <div class="col-md-8">{{email}}</div>
+                </div>
+                <div class="row" style="margin-top: 20px">
+                  <div class="col-md-4">Số điện thoại</div>
+                  <div class="col-md-8">{{phone}}</div>
+                </div>
+
+                <div class="row" style="margin-top: 20px">
+                  <div class="col-md-4">Địa chỉ</div>
+                  <div class="col-md-8">{{address}}</div>
+                </div>
               </div>
             </div>
           </div>
@@ -88,7 +90,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-12" style="padding: 0">
+      <div class="col-md-12" style="padding: 0;position: fixed;bottom: 0;left: 0">
         <!--         Footer-->
         <footer class=" text-center text-white" style="background-color:#1a1a1a;">
           <!-- Grid container -->

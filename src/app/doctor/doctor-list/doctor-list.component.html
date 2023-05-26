@@ -105,7 +105,7 @@
                               <th>Họ tên</th>
                               <th>Số điện thoại</th>
                               <th>Email</th>
-                              <th style="width: 100%">Xóa</th>
+                              <th style="width: 100%">Sửa</th>
                               </thead>
                               <tbody>
                               <tr *ngFor="let dot of doctors | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">
@@ -113,7 +113,9 @@
                                 <td>{{dot.phoneNumber}}</td>
                                 <td>{{dot.email}}</td>
                                 <td style="width: 100%">
-                                  <i style="font-size: 20px; color: #F26b38" class='bx bx-edit'></i>
+                                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal"  [routerLink]="['/doctorUpdate',dot.id]">
+                                    <i class='bx bx-edit'></i>
+                                  </button>
                                 </td>
                               </tr>
                               <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>

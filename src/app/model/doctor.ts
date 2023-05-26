@@ -1,6 +1,7 @@
 export interface Doctor {
   id?: number;
   firstName?:string;
+  username?:string;
   lastName?:string;
   phoneNumber?: string;
   email?: string;
@@ -9,8 +10,10 @@ export interface Doctor {
   role?:string;
   birthday?: string;
   image?: string;
+  businessHours?:string;
+  roomName?:string;
   address?: string;
-  medical_degree?:string;
+  medicalDegree?:string;
   rate?:number;
   count?:number;
   total?:number,
